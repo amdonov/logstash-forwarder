@@ -11,7 +11,7 @@
 # Check config
 test -f /etc/sysconfig/logstash-forwarder && . /etc/sysconfig/logstash-forwarder
 
-LOGSTASH_FORWARDER_BIN="/opt/logstash-forwarder/bin/logstash-forwarder"
+LOGSTASH_FORWARDER_BIN="/usr/bin/logstash-forwarder"
 
 find_logstash_forwarder_process () {
     PIDTEMP=`pgrep -f ${LOGSTASH_FORWARDER_BIN}`
