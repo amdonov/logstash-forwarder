@@ -44,16 +44,16 @@ vendor-clean:
 	$(MAKE) -C vendor/zeromq/ clean
 	$(MAKE) -C vendor/zlib/ clean
 
-rpm deb: PREFIX=/opt/logstash-forwarder
+rpm deb: PREFIX=/usr
 rpm deb: | build-all
 	fpm -s dir -t $@ -n logstash-forwarder -v $(VERSION) \
 		--replaces lumberjack \
 		--exclude '*.a' --exclude 'lib/pkgconfig/zlib.pc' \
 		--description "a log shipping tool" \
-		--url "https://github.com/elasticsearch/logstash-forwarder" \
+		--url "https://github.com/amdonov/logstash-forwarder" \
 		build/bin/logstash-forwarder=$(PREFIX)/bin/ \
-		build/bin/logstash-forwarder.sh=$(PREFIX)/bin/ \
 		logstash-forwarder.init=/etc/init.d/logstash-forwarder
+		logstash-forwarder.options=/etc/sysconfig/logstash-forwarder
 
 # Vendor'd dependencies
 # If VENDOR contains 'zeromq' download and build it.
