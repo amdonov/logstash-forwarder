@@ -52,7 +52,7 @@ rpm deb: | build-all
 		--description "a log shipping tool" \
 		--url "https://github.com/amdonov/logstash-forwarder" \
 		build/bin/logstash-forwarder=$(PREFIX)/bin/ \
-		logstash-forwarder.init=/etc/init.d/logstash-forwarder
+		logstash-forwarder.init=/etc/init.d/logstash-forwarder \
 		logstash-forwarder.options=/etc/sysconfig/logstash-forwarder
 
 # Vendor'd dependencies
